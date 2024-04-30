@@ -1,6 +1,7 @@
 import {EventManagementPersistence} from "../persistence/EventManagementPersistence";
 import {QueryResult} from "mysql2";
 import {Event} from "../model/Event";
+import {UserEvent} from "../model/UserEvent";
 
 export class EventManagementController {
     private eventManagement: EventManagementPersistence;
@@ -21,6 +22,10 @@ export class EventManagementController {
 
     async updateEvent(eventId: string, event: Omit<Event, "id">): Promise<QueryResult> {
         return await this.eventManagement.updateEvent(eventId, event);
+    }
+
+    async registerUsersForAnEvent (userEvent: UserEvent[]) {
+        return await this.eventManagement.registerUsersForAnEvent(userEvent);
     }
 
 }
