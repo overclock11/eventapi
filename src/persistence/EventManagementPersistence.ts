@@ -77,7 +77,7 @@ export class EventManagementPersistence {
             const formatValues = userEvent.map((userAndEvent)=> {
                 return [uuidv4(), userAndEvent.eventId, userAndEvent.userId]
             })
-            const [results] = await pool.query("insert into event_user (id, event_id1, user_id1) values (?)", formatValues);
+            const [results] = await pool.query("insert into event_user (id, event_id, user_id) values (?)", formatValues);
             return results;
         } catch (err) {
             console.log(err)
