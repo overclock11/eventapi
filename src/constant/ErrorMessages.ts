@@ -11,7 +11,7 @@ export const ERROR_MESSAGES = {
     fileNotFound: "No se encontró el archivo",
     stringCellValue: "El valor de la celda debe ser un string",
     dateFormat: "El formato de la fecha no es válido",
-    badFormatFile: "El archivo solo puede tener 3 columnas y ser xlsx, name, date y address",
+    badFormatFile: "El archivo solo puede tener 5 columnas y ser xlsx, name, date y address, lon y lat",
     fileUpload: "Ocurrió un error cargando el archivo",
     eventUserError: "Ocurrió un error, los eventos y los usuarios deben existir"
 }

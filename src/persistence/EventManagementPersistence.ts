@@ -43,11 +43,11 @@ export class EventManagementPersistence {
 
     async createEvent(event: Omit<Event, "id">): Promise<void>{
         try {
-            const { name, date, address } = event;
+            const { name, date, address, lon, lat } = event;
             const pool = await this.connection.connect();
             await pool.execute(
                 "insert into event (id, name, date, address) values (uuid() , ?, ?, ?)",
-                [name, date, address]
+                [name, date, address, lon, lat]
             );
         } catch (err) {
             console.log(err);
@@ -87,7 +87,7 @@ export class EventManagementPersistence {
     async importFromXlsx (data: string[][]) {
         try {
             const pool = await this.connection.connect();
-            const [results] = await pool.query("insert into event (id, name, date, address) values ?", [data]);
+            const [results] = await pool.query("insert into event (id, name, date, address, lon, lat) values ?", [data]);
             return results;
         } catch (err) {
             console.log(err)

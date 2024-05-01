@@ -27,29 +27,24 @@ export const validateXlsx = async (file: Express.Multer.File): Promise<string[][
 }
 
 const validateCells = (cell: unknown, cellIndex: number, rowIndex: number): string => {
-    switch (cellIndex) {
-        case 1:
-            if(typeof cell !== "string") {
-                throw {
-                    error: `${ERROR_MESSAGES.stringCellValue} valor: ${cell}, fila: ${rowIndex} columna: ${cellIndex}`
-                }
+    const stringColumns = [1,3,4,5];
+    const dateColumns = [2];
+
+    if (stringColumns.includes(cellIndex)) {
+        if(typeof cell !== "string") {
+            throw {
+                error: `${ERROR_MESSAGES.stringCellValue} valor: ${cell}, fila: ${rowIndex} columna: ${cellIndex}`
             }
-            return cell.toString();
-        case 2:
-            if(!moment(cell as Date).isValid()) {
-                throw {
-                    error: `${ERROR_MESSAGES.dateFormat} valor: ${cell}, fila: ${rowIndex} columna: ${cellIndex}`
-                }
+        }
+        return cell.toString();
+    } else if (dateColumns.includes(cellIndex)) {
+        if(!moment(cell as Date).isValid()) {
+            throw {
+                error: `${ERROR_MESSAGES.dateFormat} valor: ${cell}, fila: ${rowIndex} columna: ${cellIndex}`
             }
-            return (cell as Date).toISOString().split("T")[0];
-        case 3:
-            if(typeof cell !== "string") {
-                throw {
-                    error: `${ERROR_MESSAGES.stringCellValue} valor: ${cell}, fila: ${rowIndex} columna: ${cellIndex}`
-                }
-            }
-            return cell;
-        default:
-            throw {error: `${ERROR_MESSAGES.badFormatFile}`}
+        }
+        return cell as string;
+    } else {
+        throw {error: `${ERROR_MESSAGES.badFormatFile}`}
     }
 }

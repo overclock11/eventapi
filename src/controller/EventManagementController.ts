@@ -3,6 +3,7 @@ import {QueryResult} from "mysql2";
 import {Event} from "../model/Event";
 import {UserEvent} from "../model/UserEvent";
 import {validateXlsx} from "../utils/ValidateXlsx";
+import {getNearbyLocations} from "../services/MapBox";
 
 export class EventManagementController {
     private eventManagement: EventManagementPersistence;
@@ -33,6 +34,10 @@ export class EventManagementController {
         const data = await validateXlsx(file);
         const result = await this.eventManagement.importFromXlsx(data);
         return result;
+    }
+    async nearbyLocations (event: Event[]) {
+        const nearbyLocations = await getNearbyLocations(event[0].lat, event[0].lon);
+        return { event, nearbyLocations };
     }
 
 }
