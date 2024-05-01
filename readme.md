@@ -3,6 +3,8 @@
 El proyecto consiste en un API para gestión de eventos de diferentes tipos como conciertos por ejemplo, a través de los servicios podemos hacer un CRUD de los eventos, crear usuarios, hacer login con un usuario y cargar archivos xlsx para agregar nuevos eventos a la base de datos.
 El proyecto está hecho usando Nodejs, typescript y express principalmente y se encuentra dividio en capas según la responsabilidad de cada una.
 
+video de explicación https://drive.google.com/file/d/1ZD2leAnpLfSY0O_89LCAz-3jjl4mNnpl/view?usp=drive_link
+
 
 ### Ambiente necesario para levantar localmente el proyecto
 
