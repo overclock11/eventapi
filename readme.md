@@ -19,7 +19,9 @@ Debe tener instalado localmente los siguientes requisitos
 6. Usando un cliente HTTP puede empezar a consumir los servicios
 
 - Una vez el proyecto esté corriendo puede ver el swagger en http://localhost:3000/docs/#/
-- El formato del archivo de excel para cargar eventos está en  [cargar de archivos.xlsx](/sources/cargar%20de%20archivos.xlsx)
+- El formato del archivo de excel para cargar eventos está en [cargar de archivos.xlsx](/sources/cargar%20de%20archivos.xlsx)
+- Existe un JSON de apoyo para el consumo de los servicios exporta desde el cliente http insommnia [Insomnia_2024-05-01](/sources/Insomnia_2024-05-01.json)
+
 
 
 #### A continuación puede ver los diagramas relacionados al proyecto
