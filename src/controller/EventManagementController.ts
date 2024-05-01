@@ -2,6 +2,7 @@ import {EventManagementPersistence} from "../persistence/EventManagementPersiste
 import {QueryResult} from "mysql2";
 import {Event} from "../model/Event";
 import {UserEvent} from "../model/UserEvent";
+import {validateXlsx} from "../utils/ValidateXlsx";
 
 export class EventManagementController {
     private eventManagement: EventManagementPersistence;
@@ -26,6 +27,12 @@ export class EventManagementController {
 
     async registerUsersForAnEvent (userEvent: UserEvent[]) {
         return await this.eventManagement.registerUsersForAnEvent(userEvent);
+    }
+
+    async importEvents (file: Express.Multer.File) {
+        const data = await validateXlsx(file);
+        const result = await this.eventManagement.importFromXlsx(data);
+        return result;
     }
 
 }

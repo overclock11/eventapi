@@ -7,5 +7,11 @@ export const ERROR_MESSAGES = {
     createUser: "Ocurrió un error creando el usuario",
     invalidLogin: "El usuario no se encuentra registrado",
     invalidToken: "El token no existe",
-    expiredToken: "El token ha expirado"
+    expiredToken: "El token ha expirado",
+    fileNotFound: "No se encontró el archivo",
+    stringCellValue: "El valor de la celda debe ser un string",
+    dateFormat: "El formato de la fecha no es válido",
+    badFormatFile: "El archivo solo puede tener 3 columnas y ser xlsx, name, date y address",
+    fileUpload: "Ocurrió un error cargando el archivo",
+    eventUserError: "Ocurrió un error, los eventos y los usuarios deben existir"
 }
