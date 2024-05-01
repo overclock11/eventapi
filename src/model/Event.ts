@@ -3,4 +3,6 @@ export interface Event {
     name: string;
     date: Date;
     address: string;
+    lat: string;
+    lon: string;
 }
