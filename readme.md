@@ -18,7 +18,8 @@ Debe tener instalado localmente los siguientes requisitos
 5. Con la base de datos configurada y los prerequisitos instalados puede levantar el proyecto haciendo ``npm run dev``, por defecto sube en el puerto 3000 pero puede variar según su configuración del archivo .env
 6. Usando un cliente HTTP puede empezar a consumir los servicios
 
-Una vez el proyecto esté corriendo puede ver el swagger en http://localhost:3000/docs/#/
+- Una vez el proyecto esté corriendo puede ver el swagger en http://localhost:3000/docs/#/
+- El formato del archivo de excel para cargar eventos está en  [cargar de archivos.xlsx](/sources/cargar%20de%20archivos.xlsx)
 
 
 #### A continuación puede ver los diagramas relacionados al proyecto
